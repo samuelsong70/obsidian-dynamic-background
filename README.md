@@ -21,27 +21,27 @@ This plugin provides several lovely dynamic visualizations for Obsidan's Dark th
 
 ### Star Sky dynamic background for dark theme
 
-![Star Sky dynamic background](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/star-sky-dark.gif)
+![Star Sky dynamic background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/star-sky-dark.gif)
 
 ### Snow dynamic background for dark theme
 
-![Snow dynamic background](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/snow-dark.gif)
+![Snow dynamic background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-dark.gif)
 
 ### Rain dynamic background for dark theme
 
-![Rain background](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/rain-dark.gif)
+![Rain background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/rain-dark.gif)
 
 ### Random Circle dynamic background for dark theme
 
-![Randow Circle background](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/random-circle-dark.gif)
+![Randow Circle background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/random-circle-dark.gif)
 
 ### Random Circle dynamic background for light theme
 
-![Random Circle Light](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/random-circle-light.gif)
+![Random Circle Light](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/random-circle-light.gif)
 
 ### Wave dynamic background for light theme
 
-![Wave Light](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/wave-light.gif)
+![Wave Light](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wave-light.gif)
 
 
 ## How to use
@@ -53,7 +53,7 @@ This plugin provides several lovely dynamic visualizations for Obsidan's Dark th
 
 Please see the video below for details:
 
-![Blue Sky](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/open-plugin-settings-window.gif)
+![Blue Sky](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/open-plugin-settings-window.gif)
 
 ### Enable or Disable effect
 
@@ -72,7 +72,7 @@ There are a variety of dynamic effects to choose from, please choose according t
 - Click the `Appearance` button (As shown in the figure below, number 1)
 - Select Dark theme or Light theme Choose Dark theme or Light theme according to your needs (As shown in the figure below, number 2)
 
-![Select Obsidian Base Theme](https://raw.githubusercontent.com/roam-code/obsidian-dynamic-background/master/assets/select-obsidian-base-theme.jpg)
+![Select Obsidian Base Theme](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/select-obsidian-base-theme.jpg)
 
 
 If your `Base theme` setting is **Dark**, you should choose a dynamic background from the Dark series. If your `Base theme` setting is **Light**, you should choose a dynamic background from the Light series.
