@@ -25,7 +25,6 @@ data.json
 private
 super
 images
-README-CN.md
 *.scc
 light-dynamic-light-group.ts
 light-dynamic-rotated-square.ts

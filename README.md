@@ -84,18 +84,6 @@ The steps to select a dynamic background effect are as follows:
 
 ## How to Install
 
-### From Obsidian 
-
-You can install and activate this plugin by doing the following:
-
-- Click the `Settings` button on the left toolbar
-- Click `Community plugins`
-- Make sure `Restricted mode` is **off**
-- Click Browse community plugins
-- Search for "Dynamic Background"
-- Click Install
-- Once installed, activate the newly installed plugin
-
 ### From GitHub
 
 - Download `main.js`, `manifest.json`, `styles.css` from the Releases section of the GitHub Repository.
