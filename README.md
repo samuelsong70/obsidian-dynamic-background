@@ -97,6 +97,11 @@ The steps to select a dynamic background effect are as follows:
 
 ## Version History
 
+## 1.0.1
+
+- Optimized code.
+- Fixed an issue where the custom scripts was not unloaded when the plugin was unloaded. Thanks [joethei](https://github.com/joethei).
+
 ## 1.0.0
 
 - Initial version

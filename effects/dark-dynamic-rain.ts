@@ -7,52 +7,6 @@ export function Add_Rain(app: App){
 
   if (div_root) {
     let container=div_root.createEl("div", { cls: "rh-rain-db-container-0720" });
-
-    let styles=`
-    div.rh-rain-db-container-0720 {
-      background: radial-gradient(ellipse at bottom, #1b2735 20%, #090a0f 100%);
-      position: absolute;
-      z-index: -200;
-      height: 100vh;
-      width: 100% !important;
-      overflow: hidden;
-      padding:0;
-      margin:0px;}
-    div.rh-rain-db-container-0720 svg.rain__drop {
-      animation-delay: calc(var(--d) * 1s);
-      animation-duration: calc(var(--a) * 15s);
-      animation-iteration-count: infinite;
-      animation-name: rd-drop;
-      animation-timing-function: linear;
-      height: 30px;
-      left: calc(var(--x) * 1%);
-      position: absolute;
-      top: calc((var(--y) + 50) * -1px);}
-    div.rh-rain-db-container-0720 svg.rain__drop path {
-      fill: #a1c6cc;
-      opacity: var(--o);
-      transform: scaleY(calc(var(--s) * 1.5));}
-    @-webkit-keyframes rd-drop {
-      90% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(100vh);
-      }
-    }
-    @keyframes rd-drop {
-      90% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(100vh);
-      }
-    }
-    `;
-    styleEl = container.createEl("style");
-    styleEl.textContent = styles;
     
     var drop1 = '<svg class="rain__drop" preserveAspectRatio="xMinYMin" viewBox="0 0 5 50" style="--x: 34; --y: 90; --o: 0.6654153804683264; --a: 0.9917710156945896; --d: -0.8043425740744814; --s: 0.6951142349804096"><path stroke="none" d="M 2.5,0 C 2.6949458,3.5392017 3.344765,20.524571 4.4494577,30.9559 5.7551357,42.666753 4.5915685,50 2.5,50 0.40843152,50 -0.75513565,42.666753 0.55054234,30.9559 1.655235,20.524571 2.3050542,3.5392017 2.5,0 Z"></path></svg>';
     var drop2 = '<svg class="rain__drop" preserveAspectRatio="xMinYMin" viewBox="0 0 5 50" style="--x: 49; --y: 81; --o: 0.0317509941505465; --a: 1.4150340796041947; --d: -0.8977060475990615; --s: 0.3560926038758976"><path stroke="none" d="M 2.5,0 C 2.6949458,3.5392017 3.344765,20.524571 4.4494577,30.9559 5.7551357,42.666753 4.5915685,50 2.5,50 0.40843152,50 -0.75513565,42.666753 0.55054234,30.9559 1.655235,20.524571 2.3050542,3.5392017 2.5,0 Z"></path></svg>';

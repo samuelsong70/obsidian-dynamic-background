@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-dynamic-background",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Adding ddynamic background effects to the Obsidian editor",
 	"main": "main.js",
 	"scripts": {

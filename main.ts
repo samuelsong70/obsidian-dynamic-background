@@ -42,7 +42,23 @@ export default class DynamicBackgroundPlugin extends Plugin {
 	}
 
 	onunload() {
-		console.log("Unloading dynamic background plugin ...");
+		console.log("unloading dynamic background plugin...");
+
+		switch(this.settings.dynamicEffect)
+		{
+			case EffectEnum.Dark_Dynamic_RandomCircle:
+				console.log("11111111...");
+				Remove_RandomCircle(this.app);
+				break;
+			case EffectEnum.Light_Dynamic_RandomCircle:
+				console.log("222222...");
+				Remove_RandomCircle_Light(this.app);
+				break;
+			case EffectEnum.Light_Dynamic_Wave:
+				console.log("333333...");
+				Remove_Wave_Light(this.app);
+				break;
+		}
 	}
 
 	async loadSettings() {
