@@ -1,22 +1,20 @@
-import { App } from 'obsidian';
+export let LightTheme_Random_Circle_Background_Property = "linear-gradient(0deg, rgba(255,255,255,1) 62%, rgba(230,244,255,1) 100%)";
 
 // Add Random Circle dynamic background effect for light theme
-export function Add_RandomCircle_Light(app: App){
+export function Add_RandomCircle_Light(dynamicBackgroundContainer: HTMLDivElement){
   let effectScript: HTMLScriptElement;
-  let styleEl:HTMLStyleElement;
-  let div_root = app.workspace.containerEl.find("div.workspace > div.mod-root");
 
-  if (div_root) {
-    let container = div_root.createEl("div", { cls: "rh-random-circle-db-light-theme-container-0721" });
+  if (dynamicBackgroundContainer) {
+    let effect = dynamicBackgroundContainer.createEl("div", { cls: "odb-lt-random-circle-dynamic-effect" });
 
-    container.createEl("canvas");
+    effect.createEl("canvas");
 
     let code = `
       var c;
       var grd;
 
       function startLightDynamicRandomCircle() {
-        var canvas = document.querySelector("div.rh-random-circle-db-light-theme-container-0721 canvas");
+        var canvas = document.querySelector("div.odb-lt-random-circle-dynamic-effect canvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -87,24 +85,22 @@ export function Add_RandomCircle_Light(app: App){
 
       startLightDynamicRandomCircle();
     `
-    effectScript = container.createEl("script");
+    effectScript = effect.createEl("script");
     effectScript.textContent = code;
   }
 }
 
 // Remove Random Circle dynamic background effect for light theme
-export function Remove_RandomCircle_Light(app: App){
-
-  let db_container = app.workspace.containerEl.find("div.workspace > div.mod-root > div.rh-random-circle-db-light-theme-container-0721");
-  
-  if (db_container) {
-    db_container.remove();
-
-    Unload_Light_Dynamic_RandomCircle_Script();
+export function Remove_RandomCircle_Light(dynamicBackgroundContainer: HTMLDivElement){
+  let effect = dynamicBackgroundContainer.find("div.odb-lt-random-circle-dynamic-effect");
+  if (effect) {
+    effect.remove();
   }
+
+  Unload_Effect_Script();
 }
 
-function Unload_Light_Dynamic_RandomCircle_Script(){
+function Unload_Effect_Script(){
   window["startLightDynamicRandomCircle"] = null;
   window["Firework"] = null;
   window["animateLightDynamicRandomCircle"] = null;

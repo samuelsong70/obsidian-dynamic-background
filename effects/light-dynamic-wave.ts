@@ -1,19 +1,17 @@
-import { App } from 'obsidian';
+export let LightTheme_Wave_Background_Property = "linear-gradient(0deg, rgba(255,255,255,1) 60%, rgba(201,233,255,1) 100%)";
 
 // Add Wave dynamic background effect for light theme
-export function Add_Wave_Light(app: App){
+export function Add_Wave_Light(dynamicBackgroundContainer: HTMLDivElement){
   let effectScript: HTMLScriptElement;
-  let styleEl:HTMLStyleElement;
-  let div_root = app.workspace.containerEl.find("div.workspace > div.mod-root");
 
-  if (div_root) {
-    let container = div_root.createEl("div", { cls: "rh-wave-db-light-theme-container-0723" });
+  if (dynamicBackgroundContainer) {
+    let effect = dynamicBackgroundContainer.createEl("div", { cls: "odb-lt-wave-effect" });
 
-    container.createEl("div", { cls: "ocean" });
+    effect.createEl("div", { cls: "ocean" });
 
     let code = `
       function showWave() {
-        var ocean = document.querySelector("div.rh-wave-db-light-theme-container-0723 div.ocean"),
+        var ocean = document.querySelector("div.odb-lt-wave-effect div.ocean"),
         waveWidth = 10,
         waveCount = Math.floor(window.innerWidth/waveWidth),
         docFrag = document.createDocumentFragment();
@@ -31,22 +29,21 @@ export function Add_Wave_Light(app: App){
 
       showWave();
     `;
-    effectScript = container.createEl("script");
+    effectScript = effect.createEl("script");
     effectScript.textContent = code;
   }
 }
 
 // Remove Wave dynamic background effect for dark theme
-export function Remove_Wave_Light(app: App){
-  let db_container = app.workspace.containerEl.find("div.workspace > div.mod-root > div.rh-wave-db-light-theme-container-0723");
-  
-  if (db_container) {
-    db_container.remove();
-
-    Unload_Light_Dynamic_Wave_Script();
+export function Remove_Wave_Light(dynamicBackgroundContainer: HTMLDivElement){
+  let effect = dynamicBackgroundContainer.find("div.odb-lt-wave-effect");
+  if (effect) {
+    effect.remove();
   }
+
+  Unload_Effect_Script();
 }
 
-function Unload_Light_Dynamic_Wave_Script(){
+function Unload_Effect_Script(){
   window["showWave"] = null;
 }

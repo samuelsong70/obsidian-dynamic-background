@@ -1,22 +1,20 @@
-import { App } from 'obsidian';
+export let DarkTheme_Random_Circle_Background_Property = "radial-gradient(ellipse at bottom, #1b2735 20%, #090a0f 100%)";
 
 // Add Random Circle dynamic background effect for dark theme
-export function Add_RandomCircle(app: App){
+export function Add_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
   let effectScript: HTMLScriptElement;
-  let styleEl:HTMLStyleElement;
-  let div_root = app.workspace.containerEl.find("div.workspace > div.mod-root");
 
-  if (div_root) {
-    let container = div_root.createEl("div", { cls: "rh-random-circle-db-container-0721" });
+  if (dynamicBackgroundContainer) {
+    let effect = dynamicBackgroundContainer.createEl("div", { cls: "odb-dt-random-circle-dynamic-effect" });
 
-    container.createEl("canvas");
+    effect.createEl("canvas");
 
     let code = `
       var c;
       var grd;
 
       function startDarkDynamicRandomCircle() {
-        var canvas = document.querySelector("div.rh-random-circle-db-container-0721 canvas");
+        var canvas = document.querySelector("div.odb-dt-random-circle-dynamic-effect canvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -87,23 +85,22 @@ export function Add_RandomCircle(app: App){
 
       startDarkDynamicRandomCircle();
     `
-    effectScript = container.createEl("script");
+    effectScript = effect.createEl("script");
     effectScript.textContent = code;
   }
 }
 
 // Remove Random Circle dynamic background effect for dark theme
-export function Remove_RandomCircle(app: App){
-  let db_container = app.workspace.containerEl.find("div.workspace > div.mod-root > div.rh-random-circle-db-container-0721");
-  
-  if (db_container) {
-    db_container.remove();
-
-    Unload_Dark_Dynamic_RandomCircle_Script();
+export function Remove_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
+  let effect = dynamicBackgroundContainer.find("div.odb-dt-random-circle-dynamic-effect");
+  if (effect) {
+    effect.remove();
   }
+
+  Unload_Effect_Script();
 }
 
-function Unload_Dark_Dynamic_RandomCircle_Script()
+function Unload_Effect_Script()
 {
   window["startDarkDynamicRandomCircle"] = null;
   window["Firework"] = null;
