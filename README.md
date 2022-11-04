@@ -50,11 +50,11 @@ This plugin provides the following dynamic effects:
 
 ### Wallpaper demo 1
 
-![Wallpaper demo 1](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-1.gif)
+![Wallpaper demo 1](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-1.png)
 
 ### Wallpaper demo 2
 
-![Wallpaper demo 2](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-3.gif)
+![Wallpaper demo 2](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-3.png)
 
 
 
