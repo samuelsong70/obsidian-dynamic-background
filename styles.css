@@ -1,18 +1,40 @@
-.workspace-split.mod-root .view-content{
-    background:transparent;
+.workspace,
+.workspace-split.mod-root .view-content,
+.workspace-split.mod-root .workspace-leaf{
+    background:transparent; 
 }
 .workspace-split.mod-root{
     background:transparent;
 }
 
-div.rh-db-star-sky-container-0716 {
+div.rh-obsidian-dynamic-background-container {
+    flex-direction: row;
+    display: flex;
+    position: absolute;
+    width: 100% !important;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;
+}
+
+div.rh-wallpaper-cover {
+    background: inherit;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: -300;
+    filter: blur(0px);
+}
+
+div.odb-dt-star-sky-dynamic-effect {
     flex: unset !important;
     order: -9997; 
     z-index: 9997;
     background: transparent;
 }
 
-div.rh-db-star-sky-container-0716 div.star-sky {
+div.odb-dt-star-sky-dynamic-effect div.star-sky {
     width: 1px !important;
     height: 1px !important;
     flex: unset !important;
@@ -21,7 +43,7 @@ div.rh-db-star-sky-container-0716 div.star-sky {
     animation: animation-stars 50s linear infinite;
 }
 
-div.rh-db-star-sky-container-0716:after {
+div.odb-dt-star-sky-dynamic-effect:after {
     content: " ";
     position: absolute;
     top: 2000px;
@@ -40,8 +62,7 @@ div.rh-db-star-sky-container-0716:after {
     }
 } 
 
-div.snow-container-0719 {
-    background: radial-gradient(ellipse at bottom, #1b2735 20%, #090a0f 100%);
+div.odb-dt-snow-dynamic-effect {
     position: absolute;
     z-index: -200;
     height: 100vh;
@@ -51,7 +72,7 @@ div.snow-container-0719 {
     margin:0px;
 }
 
-div.snow-container-0719 div.snow, div.snow-container-0719 div.snow:before, div.snow-container-0719 div.snow:after {
+div.odb-dt-snow-dynamic-effect div.snow, div.odb-dt-snow-dynamic-effect div.snow:before, div.odb-dt-snow-dynamic-effect div.snow:after {
     position: absolute;
     top: -600px;
     left: 0;
@@ -64,7 +85,7 @@ div.snow-container-0719 div.snow, div.snow-container-0719 div.snow:before, div.s
     opacity: 0.5;
 }
 
-div.snow-container-0719 div.snow:after {
+div.odb-dt-snow-dynamic-effect div.snow:after {
     margin-left: -200px;
     opacity: 0.4;
     animation-duration: 40s;
@@ -72,7 +93,7 @@ div.snow-container-0719 div.snow:after {
     filter: blur(3px);
 }
 
-div.snow-container-0719 div.snow:before {
+div.odb-dt-snow-dynamic-effect div.snow:before {
     animation-duration: 60s;
     animation-direction: reverse;
     margin-left: -300px;
@@ -86,8 +107,7 @@ div.snow-container-0719 div.snow:before {
     }
 }
 
-div.rh-rain-db-container-0720 {
-    background: radial-gradient(ellipse at bottom, #1b2735 20%, #090a0f 100%);
+div.odb-dt-rain-dynamic-effect {
     position: absolute;
     z-index: -200;
     height: 100vh;
@@ -97,7 +117,7 @@ div.rh-rain-db-container-0720 {
     margin:0px;
 }
 
-div.rh-rain-db-container-0720 svg.rain__drop {
+div.odb-dt-rain-dynamic-effect svg.rain__drop {
     animation-delay: calc(var(--d) * 1s);
     animation-duration: calc(var(--a) * 15s);
     animation-iteration-count: infinite;
@@ -109,7 +129,7 @@ div.rh-rain-db-container-0720 svg.rain__drop {
     top: calc((var(--y) + 50) * -1px);
 }
 
-div.rh-rain-db-container-0720 svg.rain__drop path {
+div.odb-dt-rain-dynamic-effect svg.rain__drop path {
     fill: #a1c6cc;
     opacity: var(--o);
     transform: scaleY(calc(var(--s) * 1.5));
@@ -134,8 +154,7 @@ div.rh-rain-db-container-0720 svg.rain__drop path {
     }
 }
 
-div.rh-random-circle-db-container-0721 {
-    background: radial-gradient(ellipse at bottom, #1b2735 20%, #090a0f 100%);
+div.odb-dt-random-circle-dynamic-effect {
     position: absolute;
     z-index: -200;
     height: 100vh;
@@ -145,8 +164,7 @@ div.rh-random-circle-db-container-0721 {
     margin:0px;
 }
 
-div.rh-random-circle-db-light-theme-container-0721 {
-    background: linear-gradient(0deg, rgba(255,255,255,1) 62%, rgba(230,244,255,1) 100%);
+div.odb-lt-random-circle-dynamic-effect {
     position: absolute;
     z-index: -200;
     height: 100vh;
@@ -155,7 +173,7 @@ div.rh-random-circle-db-light-theme-container-0721 {
     padding:0;
     margin:0px;
 }
-div.rh-wave-db-light-theme-container-0723 {       
+div.odb-lt-wave-effect {       
     position: absolute;
     z-index: -200;
     height: 100vh;
@@ -164,10 +182,7 @@ div.rh-wave-db-light-theme-container-0723 {
     padding:0;
     margin:0px;
 }
-div.rh-wave-db-light-theme-container-0723 {
-    background: linear-gradient(0deg, rgba(255,255,255,1) 60%, rgba(201,233,255,1) 100%);
-}
-div.rh-wave-db-light-theme-container-0723 div.ocean{
+div.odb-lt-wave-effect div.ocean{
     position:absolute;
     width:100%;
     min-height:100%;

@@ -1,52 +1,66 @@
 # Dynamic Background Plugin
 
-An [Obsidian](https://obsidian.md) plugin for adding dynamic background effects to the Obsidian editor.
+An [Obsidian](https://obsidian.md) plugin for adding dynamic effects and/or static wallpapers for Obsidian background.
 
 ## Features
 
-This plugin provides several lovely dynamic visualizations for Obsidan's Dark theme and Light theme:
+- Adding dynamic effects for Obsidian background.
+- Adding static wallpapers for Obsidian background.
+- Adding dynamic effects and static wallpapers for Obsidian background. 
 
-- 4 dynamic backgrounds for dark themes
+This plugin provides the following dynamic effects:
+
+- 4 dynamic effects for Obsidian dark themes
   - Star Sky
   - Snow
   - Rain
   - Random Circle
-- 2 dynamic backgrounds for bright themes
+- 2 dynamic effects for Obsidian light themes
   - Random Circle
   - Wave
 
-> **Note:**: Please report any bugs or needs by opening a new issue on GitHub.
+> **Note:** Please report any bugs or needs by opening a new issue on GitHub.
 
 ## Demo
 
-### Star Sky dynamic background for dark theme
+### Snow dynamic effect
 
-![Star Sky dynamic background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/star-sky-dark.gif)
+![Snow dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect.gif)
 
-### Snow dynamic background for dark theme
+### Snow dynamic effect with wallpaper
 
-![Snow dynamic background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-dark.gif)
+![Snow dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect-with-wallpaper.gif)
 
-### Rain dynamic background for dark theme
+### Rain dynamic effect
 
-![Rain background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/rain-dark.gif)
+![Rain dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/rain-effect.gif)
 
-### Random Circle dynamic background for dark theme
+### Rain dynamic effect with wallpaper
 
-![Randow Circle background](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/random-circle-dark.gif)
+![Rain dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/rain-effect-with-wallpaper.gif)
 
-### Random Circle dynamic background for light theme
 
-![Random Circle Light](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/random-circle-light.gif)
+### Wave dynamic effect
 
-### Wave dynamic background for light theme
+![Wave dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wave-effect.gif)
 
-![Wave Light](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wave-light.gif)
+### Wave dynamic effect with wallpaper
+
+![Wave dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wave-effect-with-wallpaper.gif)
+
+### Wallpaper demo 1
+
+![Wallpaper demo 1](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-1.gif)
+
+### Wallpaper demo 2
+
+![Wallpaper demo 2](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-3.gif)
+
 
 
 ## How to use
 
-## Open setting window
+### Open setting window
 
 - Click the `Settings` button on the left toolbar
 - Slide the scroll bar in the pop-up dialog and click `Dynamic Background` in the Community Plugins group
@@ -55,34 +69,69 @@ Please see the video below for details:
 
 ![Blue Sky](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/open-plugin-settings-window.gif)
 
-### Enable or Disable effect
+### Enable or Disable dynamic effect
 
-Dynamic background effects can be enabled or disabled at any time by following these steps:
+Dynamic effect can be enabled or disabled at any time:
 
 - [Open the plugin's settings window](#open-setting-window)
-- toggle the `Dynamic Background State` switch
+- Close the `Enable Dynamic Effect` switch
 
-> **Note:**: Turn on the switch to enable dynamic background effects, and turn off the switches to disable dynamic background effects.
+### Select dynamic effect
 
-### Select effect
-
-There are a variety of dynamic effects to choose from, please choose according to your `Base theme` setting. You can set the `Base theme` by following the steps below.
+There are a variety of dynamic effects to choose from, please choose a dynamic effect according to your `Base theme` setting. You can set the `Base theme` or `Base color scheme` by following the steps below.
 
 - Click the `Settings` button on the left toolbar
 - Click the `Appearance` button (As shown in the figure below, number 1)
-- Select Dark theme or Light theme Choose Dark theme or Light theme according to your needs (As shown in the figure below, number 2)
+- Select a theme as you need (as shown in the figure below, number 2)
 
 ![Select Obsidian Base Theme](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/select-obsidian-base-theme.jpg)
 
 
-If your `Base theme` setting is **Dark**, you should choose a dynamic background from the Dark series. If your `Base theme` setting is **Light**, you should choose a dynamic background from the Light series.
+If your `Base theme` or `Base color scheme` setting is **Dark**, you should choose a dynamic effect from the Dark series. If your `Base theme` or `Base color scheme` setting is **Light**, you should choose a dynamic effect from the Light series.
 
-The steps to select a dynamic background effect are as follows:
+The steps to select a dynamic effect are as follows:
 
 - [Open the plugin's settings window](#open-setting-window)
-- Select the desired effect from the `Dynamic Background Effect` drop-down box
+- Select a effect from the `Dynamic Effect` drop-down box
+
+### Select wallpaper image file
+
+You can use an absolute path or a relative path to specify a local image file as the wallpaper.
+
+- Windows system absolute path example: e:\\images\\d.jpg, pay attention to use double slashes
+- Linux system absolute path example: /home/user/images/moon.jpg
+- Relative path example: attachments/moon.jpg
+
+> **Note:** Sometimes you may just want to display the wallpaper without the dynamic effect, just turn off the `Enable Dynamic Effect` switch in the settings window.
+
+### Set wallpaper blur
+
+[Open the plugin's settings window](#open-setting-window), Set the blur value, 0 means no blur. The blur effect is shown as follows:
+
+**Blur: 0**
+
+![Wallpaper blur 0](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-blur-0.png)
+
+**Blur: 5**
+
+![Wallpaper blur 5](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-blur-5.png)
+
+**Blur: 10**
+
+![Wallpaper blur 10](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-blur-10.png)
 
 ## How to Install
+
+### From within Obsidian
+
+From Obsidian, you can activate this plugin within Obsidian by doing the following:
+
+- Open Settings > Community plugins
+- Make sure Restricted mode is **off**
+- Click Browse community plugins
+- Search for "Dynamic Background"
+- Click Install
+- Once installed, close the community plugins window and activate the newly installed plugin
 
 ### From GitHub
 
@@ -93,16 +142,10 @@ The steps to select a dynamic background effect are as follows:
   >Note: On some machines the `.obsidian` folder may be hidden. On MacOS you should be able to press `Command+Shift+Dot` to show the folder in Finder.
 
 - Reload Obsidian
-- If prompted about Safe Mode, you can disable safe mode and enable the plugin.
 
 ## Version History
 
-## 1.0.1
-
-- Optimized code.
-- Fixed an issue where the custom scripts was not unloaded when the plugin was unloaded. Thanks [joethei](https://github.com/joethei).
-
-## 1.0.0
+## 1.0.2
 
 - Initial version
 
