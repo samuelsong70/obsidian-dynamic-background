@@ -98,9 +98,9 @@ The steps to select a dynamic effect are as follows:
 
 You can use an absolute path or a relative path to specify a local image file as the wallpaper.
 
-- Windows system absolute path example: e:\\images\\d.jpg, pay attention to use double slashes
-- Linux system absolute path example: /home/user/images/moon.jpg
-- Relative path example: attachments/moon.jpg
+- Windows system absolute path example: `e:\\images\\d.jpg`, pay attention to use double slashes
+- Linux system absolute path example: `/home/user/images/moon.jpg`
+- Relative path example: `attachments/moon.jpg`
 
 > **Note:** Sometimes you may just want to display the wallpaper without the dynamic effect, just turn off the `Enable Dynamic Effect` switch in the settings window.
 
