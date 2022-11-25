@@ -5,6 +5,7 @@ import { Add_Rain, Remove_Rain, DarkTheme_Rain_Background_Property} from 'effect
 import { Add_RandomCircle, Remove_RandomCircle, DarkTheme_Random_Circle_Background_Property} from 'effects/dark-dynamic-random-circle';
 import { Add_RandomCircle_Light, Remove_RandomCircle_Light, LightTheme_Random_Circle_Background_Property} from 'effects/light-dynamic-random-circle';
 import { Add_Wave_Light, Remove_Wave_Light, LightTheme_Wave_Background_Property} from 'effects/light-dynamic-wave';
+import { Add_DigitalRain, Remove_DigitalRain, DarkTheme_Digital_Rain_Background_Property} from 'effects/dark-dynamic-digital-rain';
 import { DynamicEffectEnum } from 'common';
 import { DynamicBackgroundPluginSettings } from 'common';
 import * as fs from 'fs';
@@ -164,6 +165,8 @@ export default class DynamicBackgroundPlugin extends Plugin {
 				case DynamicEffectEnum.Light_Wave:
 					this.dynamicBackgroundContainer.style.setProperty("background", LightTheme_Wave_Background_Property);
 					break;
+				case DynamicEffectEnum.Dark_DigitalRain:
+					this.dynamicBackgroundContainer.style.setProperty("background", DarkTheme_Digital_Rain_Background_Property);
 			}
 		}
 	}
@@ -181,6 +184,10 @@ export default class DynamicBackgroundPlugin extends Plugin {
 			case DynamicEffectEnum.Dark_Rain:
 				if (this.dynamicBackgroundContainer)
 					Add_Rain(this.dynamicBackgroundContainer);
+				break;
+			case DynamicEffectEnum.Dark_DigitalRain:
+				if (this.dynamicBackgroundContainer)
+					Add_DigitalRain(this.dynamicBackgroundContainer);
 				break;
 			case DynamicEffectEnum.Dark_RandomCircle:
 				if (this.dynamicBackgroundContainer)
@@ -214,6 +221,10 @@ export default class DynamicBackgroundPlugin extends Plugin {
 			case DynamicEffectEnum.Dark_Rain:
 				if (this.dynamicBackgroundContainer)
 					Remove_Rain(this.dynamicBackgroundContainer);
+				break;
+			case DynamicEffectEnum.Dark_DigitalRain:
+				if (this.dynamicBackgroundContainer)
+					Remove_DigitalRain(this.dynamicBackgroundContainer);
 				break;
 			case DynamicEffectEnum.Dark_RandomCircle:
 				if (this.dynamicBackgroundContainer)
@@ -267,10 +278,11 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 			.setDesc('Select a dynamic effect')
 			.addDropdown((dropdown) =>
         dropdown
-          .addOption(DynamicEffectEnum.Dark_StarSky.toString(), "Dark - Star Sky")
-					.addOption(DynamicEffectEnum.Dark_Snow.toString(), "Dark - Snow")
+					.addOption(DynamicEffectEnum.Dark_DigitalRain.toString(), "Dark - Matrix / Digital Rain")
 					.addOption(DynamicEffectEnum.Dark_Rain.toString(), "Dark - Rain")
 					.addOption(DynamicEffectEnum.Dark_RandomCircle.toString(), "Dark - Random Circle")
+					.addOption(DynamicEffectEnum.Dark_Snow.toString(), "Dark - Snow")
+					.addOption(DynamicEffectEnum.Dark_StarSky.toString(), "Dark - Star Sky")
 					.addOption(DynamicEffectEnum.Light_RandomCircle.toString(), "Light - Random Circle")
 					.addOption(DynamicEffectEnum.Light_Wave.toString(), "Light - Wave")
 					.setValue(this.plugin.settings.dynamicEffect.toString())

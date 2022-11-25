@@ -1,6 +1,6 @@
 {
 	"name": "Dynamic Background",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Adding dynamic effects and/or static wallpapers for Obsidian background",
 	"main": "main.js",
 	"scripts": {

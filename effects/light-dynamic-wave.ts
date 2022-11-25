@@ -10,7 +10,7 @@ export function Add_Wave_Light(dynamicBackgroundContainer: HTMLDivElement){
     effect.createEl("div", { cls: "ocean" });
 
     let code = `
-      function showWave() {
+      function Obsidian_Dynamic_Background_ShowWave() {
         var ocean = document.querySelector("div.odb-lt-wave-effect div.ocean"),
         waveWidth = 10,
         waveCount = Math.floor(window.innerWidth/waveWidth),
@@ -27,7 +27,7 @@ export function Add_Wave_Light(dynamicBackgroundContainer: HTMLDivElement){
         ocean.appendChild(docFrag);
       }
 
-      showWave();
+      Obsidian_Dynamic_Background_ShowWave();
     `;
     effectScript = effect.createEl("script");
     effectScript.textContent = code;
@@ -45,5 +45,5 @@ export function Remove_Wave_Light(dynamicBackgroundContainer: HTMLDivElement){
 }
 
 function Unload_Effect_Script(){
-  window["showWave"] = null;
+  window["Obsidian_Dynamic_Background_ShowWave"] = null;
 }

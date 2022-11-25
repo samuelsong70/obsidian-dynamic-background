@@ -10,25 +10,25 @@ export function Add_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
     effect.createEl("canvas");
 
     let code = `
-      var c;
-      var grd;
+      var odb_random_circle_ctx;
+      var odb_random_circle_grd;
 
-      function startDarkDynamicRandomCircle() {
+      function Obsidian_Dynamic_Background_Start() {
         var canvas = document.querySelector("div.odb-dt-random-circle-dynamic-effect canvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        c = canvas.getContext("2d");
+        odb_random_circle_ctx = canvas.getContext("2d");
 
-        grd = c.createLinearGradient(0, window.innerHeight, 0, 0);
+        odb_random_circle_grd = odb_random_circle_ctx.createLinearGradient(0, window.innerHeight, 0, 0);
 
-        c.fillStyle = grd;
-        c.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        odb_random_circle_ctx.fillStyle = odb_random_circle_grd;
+        odb_random_circle_ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
         
-        animateDarkDynamicRandomCircle();
+        Obsidian_Dynamic_Background_Animate();
       }
 
-      function Firework(x, y) {
+      function Obsidian_Dynamic_Background_Firework(x, y) {
         this.x = x;
         this.y = y;
         this.radius = 5;
@@ -36,11 +36,11 @@ export function Add_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
         this.lifespan = Math.random()*180 + 150;
 
         this.draw = function() {
-          c.beginPath();
-          c.arc(this.x, window.innerHeight - this.y, this.radius, 0, 2*Math.PI, false);
+          odb_random_circle_ctx.beginPath();
+          odb_random_circle_ctx.arc(this.x, window.innerHeight - this.y, this.radius, 0, 2*Math.PI, false);
           var alpha = (this.lifespan - this.time)/this.lifespan;
-          c.strokeStyle = "rgba(255, 255, 255, " + alpha + ")";
-          c.stroke();
+          odb_random_circle_ctx.strokeStyle = "rgba(255, 255, 255, " + alpha + ")";
+          odb_random_circle_ctx.stroke();
         }
 
         this.update = function() {
@@ -55,15 +55,15 @@ export function Add_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
       var fireworks = [];
       var time = 0;
 
-      function animateDarkDynamicRandomCircle() {
-        c.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        c.fillStyle = grd;
-        c.fillRect(0, 0, window.innerWidth, window.innerHeight);
+      function Obsidian_Dynamic_Background_Animate() {
+        odb_random_circle_ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        odb_random_circle_ctx.fillStyle = odb_random_circle_grd;
+        odb_random_circle_ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
         
         if (time % Math.floor(Math.random()*100 + 40) == 0) {
           var x = Math.floor(Math.random()*window.innerWidth);
           var y = Math.floor(Math.random()*window.innerHeight);
-          fireworks.push(new Firework(x, y));
+          fireworks.push(new Obsidian_Dynamic_Background_Firework(x, y));
         }
 
         fireworks.forEach(firework => {
@@ -79,11 +79,11 @@ export function Add_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
         
         time += 1;
 
-        if (animateDarkDynamicRandomCircle)
-          requestAnimationFrame(animateDarkDynamicRandomCircle);
+        if (Obsidian_Dynamic_Background_Animate)
+          requestAnimationFrame(Obsidian_Dynamic_Background_Animate);
       }
 
-      startDarkDynamicRandomCircle();
+      Obsidian_Dynamic_Background_Start();
     `
     effectScript = effect.createEl("script");
     effectScript.textContent = code;
@@ -102,7 +102,7 @@ export function Remove_RandomCircle(dynamicBackgroundContainer: HTMLDivElement){
 
 function Unload_Effect_Script()
 {
-  window["startDarkDynamicRandomCircle"] = null;
-  window["Firework"] = null;
-  window["animateDarkDynamicRandomCircle"] = null;
+  window["Obsidian_Dynamic_Background_Start"] = null;
+  window["Obsidian_Dynamic_Background_Firework"] = null;
+  window["Obsidian_Dynamic_Background_Animate"] = null;
 }

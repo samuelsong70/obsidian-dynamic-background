@@ -10,12 +10,13 @@ An [Obsidian](https://obsidian.md) plugin for adding dynamic effects and/or stat
 
 This plugin provides the following dynamic effects:
 
-- 4 dynamic effects for Obsidian dark themes
-  - Star Sky
-  - Snow
+- 5 dynamic effects for Obsidian dark theme
+  - Matrix / Digital Rain
   - Rain
   - Random Circle
-- 2 dynamic effects for Obsidian light themes
+  - Snow
+  - Star Sky
+- 2 dynamic effects for Obsidian light theme
   - Random Circle
   - Wave
 
@@ -23,13 +24,9 @@ This plugin provides the following dynamic effects:
 
 ## Demo
 
-### Snow dynamic effect
+### Matrix / Digital Rain dynamic effect
 
-![Snow dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect.gif)
-
-### Snow dynamic effect with wallpaper
-
-![Snow dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect-with-wallpaper.gif)
+![Digital rain dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/digital-rain-dark-effect.gif)
 
 ### Rain dynamic effect
 
@@ -38,6 +35,14 @@ This plugin provides the following dynamic effects:
 ### Rain dynamic effect with wallpaper
 
 ![Rain dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/rain-effect-with-wallpaper.gif)
+
+### Snow dynamic effect
+
+![Snow dynamic effect](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect.gif)
+
+### Snow dynamic effect with wallpaper
+
+![Snow dynamic effect with wallpaper](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/snow-effect-with-wallpaper.gif)
 
 
 ### Wave dynamic effect
@@ -55,7 +60,6 @@ This plugin provides the following dynamic effects:
 ### Wallpaper demo 2
 
 ![Wallpaper demo 2](https://raw.githubusercontent.com/samuelsong70/obsidian-dynamic-background/master/assets/wallpaper-demo-3.png)
-
 
 
 ## How to use
@@ -145,7 +149,11 @@ From Obsidian, you can activate this plugin within Obsidian by doing the followi
 
 ## Version History
 
-## 1.0.2
+### 1.0.3
+
+- Add Matrix / Digital Rain dynamic effect for Obsidian dark theme.
+
+### 1.0.2
 
 - Initial version
 
