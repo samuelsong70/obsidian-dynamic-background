@@ -23,7 +23,7 @@ export function Add_DigitalRain(dynamicBackgroundContainer: HTMLDivElement){
         odb_digital_rain_ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
         odb_digital_rain_ctx.fillRect(0, 0, odb_digital_rain_canvas.width, odb_digital_rain_canvas.height);
 
-        odb_digital_rain_ctx.fillStyle = "#0F0"; //green
+        odb_digital_rain_ctx.fillStyle = "#0F0";
         odb_digital_rain_ctx.font = odb_digital_rain_font_size + "px arial";
 
         for(var i = 0; i < odb_digital_rain_drops.length; i++)
@@ -45,11 +45,8 @@ export function Add_DigitalRain(dynamicBackgroundContainer: HTMLDivElement){
         odb_digital_rain_canvas.height = window.innerHeight;
 
         odb_digital_rain_ctx = odb_digital_rain_canvas.getContext("2d");
-
-        odb_digital_rain_grd = odb_digital_rain_ctx.createLinearGradient(0, window.innerHeight, 0, 0);
-
-        odb_digital_rain_ctx.fillStyle = odb_digital_rain_grd;
-        odb_digital_rain_ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        odb_digital_rain_ctx.globalAlpha = 1;
+        odb_digital_rain_ctx.globalCompositeOperation = "xor";
 
         odb_digital_rain_columns = odb_digital_rain_canvas.width/odb_digital_rain_font_size;
 
@@ -59,7 +56,6 @@ export function Add_DigitalRain(dynamicBackgroundContainer: HTMLDivElement){
 
       function Obsidian_Dynamic_Background_Clear() {
         clearInterval(odb_digital_rain_interval);
-        console.log("aaaaaaaaaaaaaaaaa");
       }
 
       Obsidian_Dynamic_Background_Start();

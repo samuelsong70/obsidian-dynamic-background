@@ -149,6 +149,10 @@ From Obsidian, you can activate this plugin within Obsidian by doing the followi
 
 ## Version History
 
+### 1.0.4
+
+- Improved Matrix / Digital Rain dynamic effect.
+
 ### 1.0.3
 
 - Add Matrix / Digital Rain dynamic effect for Obsidian dark theme.
