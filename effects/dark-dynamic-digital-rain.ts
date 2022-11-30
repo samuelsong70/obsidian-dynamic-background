@@ -54,6 +54,12 @@ export function Add_DigitalRain(dynamicBackgroundContainer: HTMLDivElement){
           odb_digital_rain_drops[x] = 1; 
       }
 
+      function Obsidian_Dynamic_Background_SetBrightness(brightness) {
+        odb_digital_rain_canvas.width = window.innerWidth;  // clear canvas
+        odb_digital_rain_ctx.globalCompositeOperation = "xor";
+        odb_digital_rain_ctx.globalAlpha = brightness;
+      }
+
       function Obsidian_Dynamic_Background_Clear() {
         clearInterval(odb_digital_rain_interval);
       }
@@ -82,6 +88,7 @@ function Unload_Effect_Script()
   window["Obsidian_Dynamic_Background_Start"] = null;
   window["Obsidian_Dynamic_Background_Draw"] = null;
   window["Obsidian_Dynamic_Background_Clear"] = null;
+  window["Obsidian_Dynamic_Background_SetBrightness"] = null;
 }
 
 function CallClear(dynamicBackgroundContainer: HTMLDivElement){
@@ -95,4 +102,26 @@ function CallClear(dynamicBackgroundContainer: HTMLDivElement){
 
   effectScript = effect.createEl("script");
   effectScript.textContent = code;
+}
+
+export function SetBrightness(dynamicBackgroundContainer: HTMLDivElement, brightness: number){
+  let setBrightnessScript: HTMLScriptElement;
+  let setBrightnessScriptContainer: HTMLDivElement;
+
+  let effect = dynamicBackgroundContainer.find("div.odb-dt-digital-rain-dynamic-effect");
+  if (effect){
+    let setBrightnessScriptContainer = dynamicBackgroundContainer.find("div.odb-dt-digital-rain-dynamic-effect div.set-brightness-script-container");
+
+    if (setBrightnessScriptContainer){
+      setBrightnessScriptContainer.remove();
+    }
+
+    setBrightnessScriptContainer = effect.createEl("div", { cls: "div.set-brightness-script-container" });
+
+    let code = "Obsidian_Dynamic_Background_SetBrightness(" + brightness + ")";
+
+    setBrightnessScript = setBrightnessScriptContainer.createEl("script");
+
+    setBrightnessScript.textContent = code;
+  }
 }

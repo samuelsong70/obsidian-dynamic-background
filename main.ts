@@ -5,7 +5,7 @@ import { Add_Rain, Remove_Rain, DarkTheme_Rain_Background_Property} from 'effect
 import { Add_RandomCircle, Remove_RandomCircle, DarkTheme_Random_Circle_Background_Property} from 'effects/dark-dynamic-random-circle';
 import { Add_RandomCircle_Light, Remove_RandomCircle_Light, LightTheme_Random_Circle_Background_Property} from 'effects/light-dynamic-random-circle';
 import { Add_Wave_Light, Remove_Wave_Light, LightTheme_Wave_Background_Property} from 'effects/light-dynamic-wave';
-import { Add_DigitalRain, Remove_DigitalRain, DarkTheme_Digital_Rain_Background_Property} from 'effects/dark-dynamic-digital-rain';
+import { Add_DigitalRain, Remove_DigitalRain, DarkTheme_Digital_Rain_Background_Property, SetBrightness} from 'effects/dark-dynamic-digital-rain';
 import { DynamicEffectEnum } from 'common';
 import { DynamicBackgroundPluginSettings } from 'common';
 import * as fs from 'fs';
@@ -13,6 +13,7 @@ import * as path from 'path';
 
 const DEFAULT_SETTINGS: DynamicBackgroundPluginSettings = {
 	dynamicEffect: DynamicEffectEnum.Dark_StarSky,
+	digitalRainBrightness: 0.7,
 	enableDynamicEffect: true,
 	backgroundImageFile:"",
 	blur:0
@@ -65,7 +66,6 @@ export default class DynamicBackgroundPlugin extends Plugin {
 	}
 
 	AddDynamicBackgroundContainer(){
-		let styleEl:HTMLStyleElement;
   	let div_root = app.workspace.containerEl.find("div.workspace > div.mod-root");
 		
 		this.dynamicBackgroundContainer = null;
@@ -171,6 +171,12 @@ export default class DynamicBackgroundPlugin extends Plugin {
 		}
 	}
 
+	SetDigitalRainBrightnessHelper(){
+		if (this.dynamicBackgroundContainer){
+			SetBrightness(this.dynamicBackgroundContainer, this.settings.digitalRainBrightness);
+		}
+	}
+
 	AddDynamicBackgroundEffect(effect: DynamicEffectEnum) {
 		switch(effect){
 			case DynamicEffectEnum.Dark_StarSky:
@@ -187,7 +193,10 @@ export default class DynamicBackgroundPlugin extends Plugin {
 				break;
 			case DynamicEffectEnum.Dark_DigitalRain:
 				if (this.dynamicBackgroundContainer)
+				{
 					Add_DigitalRain(this.dynamicBackgroundContainer);
+					this.SetDigitalRainBrightnessHelper();
+				}
 				break;
 			case DynamicEffectEnum.Dark_RandomCircle:
 				if (this.dynamicBackgroundContainer)
@@ -298,8 +307,28 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 							this.plugin.AddDynamicBackgroundEffect(this.plugin.settings.dynamicEffect);
 
 						this.plugin.SetDynamicBackgroundContainerBgProperty();
+
+						this.display();
           })
       );	
+
+		if (this.plugin.settings.dynamicEffect == DynamicEffectEnum.Dark_DigitalRain)
+		{
+			new Setting(containerEl)
+			.setName("Brightness")
+			.setDesc("Set Digital Rain Brightness.")
+			.addSlider(tc => {
+				tc.setDynamicTooltip()
+					.setLimits(0.50, 1, 0.01)
+					.setValue(this.plugin.settings.digitalRainBrightness)
+					.onChange(async value => {
+						this.plugin.settings.digitalRainBrightness = value;
+						this.plugin.SetDigitalRainBrightnessHelper();
+
+						await this.plugin.saveSettings();
+					});
+			});	
+		}
 
 		new Setting(containerEl)
 			.setName('Enable Dynamic Effect')
@@ -343,16 +372,17 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 			new Setting(containerEl)
 			.setName('Blur')
 			.setDesc('The blurriness of the wallpaper, 0 means no blur.')
-			.addText((cb) =>
-        cb
-          .setValue(this.plugin.settings.blur.toString())
-          .onChange(async (value) => {
-            this.plugin.settings.blur = Number(value);
+			.addSlider(tc => {
+				tc.setDynamicTooltip()
+					.setLimits(0, 100, 1)
+					.setValue(this.plugin.settings.blur)
+					.onChange(async value => {
+						this.plugin.settings.blur = value;
 
-            await this.plugin.saveSettings();
+						await this.plugin.saveSettings();
 
 						this.plugin.SetWallpaperBlur();
-          })
-			);
+					});
+			});	
 	}
 }

@@ -13,6 +13,7 @@ export enum DynamicEffectEnum {
 
 export interface DynamicBackgroundPluginSettings {
 	dynamicEffect: DynamicEffectEnum;
+	digitalRainBrightness: number;
 	enableDynamicEffect: boolean;
 	backgroundImageFile: string;
 	blur:number;
