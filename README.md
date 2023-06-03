@@ -100,11 +100,9 @@ The steps to select a dynamic effect are as follows:
 
 ### Select wallpaper image file
 
-You can use an absolute path or a relative path to specify a local image file as the wallpaper.
+You can specify a image file inside Vault as the wallpaper, please use the relative path of the image file inside Vault.
 
-- Windows system absolute path example: `e:\\images\\d.jpg`, pay attention to use double slashes
-- Linux system absolute path example: `/home/user/images/moon.jpg`
-- Relative path example: `attachments/moon.jpg`
+- Example: `attachments/moon.jpg` or `wallpapers/green.png`
 
 > **Note:** Sometimes you may just want to display the wallpaper without the dynamic effect, just turn off the `Enable Dynamic Effect` switch in the settings window.
 
@@ -148,6 +146,10 @@ From Obsidian, you can activate this plugin within Obsidian by doing the followi
 - Reload Obsidian
 
 ## Version History
+
+### 1.0.6
+
+- Fixed an issue where static wallpapers could not be displayed after upgrading to Obsidian v1.2.8 or later.
 
 ### 1.0.5
 

@@ -97,34 +97,12 @@ export default class DynamicBackgroundPlugin extends Plugin {
 			return;
 
 		let backgroundImageAlreadySet = false;	
-		let vaultBasePath: string;
 		let imageFullFilename="";
-		let buffer: Buffer;
-		vaultBasePath = (this.app.vault.adapter as FileSystemAdapter).getBasePath();
-		// Try absolute path
+
 		try {
-        let test = await fs.promises.readFile(this.settings.backgroundImageFile);
-        buffer = test;
-				
-				imageFullFilename = "app://local/" + this.settings.backgroundImageFile;
+            imageFullFilename = this.app.vault.adapter.getResourcePath(this.settings.backgroundImageFile)
 
-    } catch(e) { }
-
-		if (imageFullFilename=="")
-		{
-			//Try relative path
-			try {
-				let fileFullname = path.join(vaultBasePath, this.settings.backgroundImageFile);
-
-				fileFullname = fileFullname.replace(/\\/g, "/");
-
-				let test = await fs.promises.readFile(fileFullname);
-				buffer = test;
-				
-				imageFullFilename = "app://local/" + fileFullname;
-
-			} catch(e) { }
-		}
+        } catch(e) { }
 		
 		if (imageFullFilename!=""){
 			this.dynamicBackgroundContainer.style.setProperty("background","url(\"" + imageFullFilename + "\"");
@@ -351,11 +329,11 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 
 			new Setting(containerEl)
 			.setName('Static Wallpaper Image')
-			.setDesc("This local image file. Use an absolute path or a path relative to the vault.")
+			.setDesc("Image file in Vault. Please use the relative path of the image file inside Vault.")
 			.addTextArea((text) =>
         text
 					.setValue(this.plugin.settings.backgroundImageFile)
-          .setPlaceholder("Example: C:\\Users\\Example\\Documents\\moon.jpg or /home/user/images/moon.jpg or attachments/moon.jpg" )
+          .setPlaceholder("Example: attachments/moon.jpg or wallpapers/green.png" )
 					.then((cb) => {
 						cb.inputEl.style.width = "100%";
 						cb.inputEl.rows = 5;
