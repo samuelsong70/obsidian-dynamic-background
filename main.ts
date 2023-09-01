@@ -71,6 +71,17 @@ export default class DynamicBackgroundPlugin extends Plugin {
 		this.dynamicBackgroundContainer = null;
 
   	if (div_root) {
+
+		window.addEventListener('blur', () => {
+			if (this.settings.enableDynamicEffect == true) {
+				this.RemoveDynamicBackgroundEffect(this.settings.dynamicEffect);
+			}
+		});
+		window.addEventListener('focus', () => {
+			if (this.settings.enableDynamicEffect == true) {
+				this.AddDynamicBackgroundEffect(this.settings.dynamicEffect);
+			}
+		});
     	this.dynamicBackgroundContainer = div_root.createEl("div", { cls: "rh-obsidian-dynamic-background-container" });
 
 			this.wallpaperCover = this.dynamicBackgroundContainer.createEl("div", { cls: "rh-wallpaper-cover" });
