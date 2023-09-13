@@ -79,6 +79,7 @@ export default class DynamicBackgroundPlugin extends Plugin {
 		});
 		window.addEventListener('focus', () => {
 			if (this.settings.enableDynamicEffect == true) {
+				this.RemoveDynamicBackgroundEffect(this.settings.dynamicEffect);
 				this.AddDynamicBackgroundEffect(this.settings.dynamicEffect);
 			}
 		});
