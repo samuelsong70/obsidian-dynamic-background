@@ -25,6 +25,7 @@ div.rh-wallpaper-cover {
     height: 100%;
     z-index: -300;
     filter: blur(0px);
+	filter: brightness(100%);
 }
 
 div.odb-dt-star-sky-dynamic-effect {

@@ -16,7 +16,8 @@ const DEFAULT_SETTINGS: DynamicBackgroundPluginSettings = {
 	digitalRainBrightness: 0.7,
 	enableDynamicEffect: true,
 	backgroundImageFile:"",
-	blur:0
+	blur:0,
+	brightness:100,
 } 
 
 export default class DynamicBackgroundPlugin extends Plugin {
@@ -87,12 +88,12 @@ export default class DynamicBackgroundPlugin extends Plugin {
 
 			this.wallpaperCover = this.dynamicBackgroundContainer.createEl("div", { cls: "rh-wallpaper-cover" });
 
-			this.SetWallpaperBlur();
+			this.updateWallpaperStyles();
   	}
 	}
 
-	SetWallpaperBlur(){
-		let value = "blur("+this.settings.blur.toString()+"px)";
+	updateWallpaperStyles(){
+		let value = "blur("+this.settings.blur.toString()+"px) brightness("+this.settings.brightness.toString()+"%)";
 		this.wallpaperCover.style.setProperty("filter",value);
 	}
 
@@ -371,7 +372,23 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 
 						await this.plugin.saveSettings();
 
-						this.plugin.SetWallpaperBlur();
+						this.plugin.updateWallpaperStyles();
+					});
+			});	
+
+			new Setting(containerEl)
+			.setName('Brightness')
+			.setDesc('The Brightness of the wallpaper.')
+			.addSlider(tc => {
+				tc.setDynamicTooltip()
+					.setLimits(0, 200, 1)
+					.setValue(this.plugin.settings.brightness)
+					.onChange(async value => {
+						this.plugin.settings.brightness = value;
+
+						await this.plugin.saveSettings();
+
+						this.plugin.updateWallpaperStyles();
 					});
 			});	
 	}

@@ -17,4 +17,5 @@ export interface DynamicBackgroundPluginSettings {
 	enableDynamicEffect: boolean;
 	backgroundImageFile: string;
 	blur:number;
+	brightness:number;
 }
