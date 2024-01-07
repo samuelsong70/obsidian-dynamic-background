@@ -16,8 +16,10 @@ const DEFAULT_SETTINGS: DynamicBackgroundPluginSettings = {
 	digitalRainBrightness: 0.7,
 	enableDynamicEffect: true,
 	backgroundImageFile:"",
-	blur:0,
-	brightness:100,
+	blur: 0,
+	brightness: 100,
+	backgroundColor: "",
+	backgroundBlendMode: ""
 } 
 
 export default class DynamicBackgroundPlugin extends Plugin {
@@ -95,6 +97,13 @@ export default class DynamicBackgroundPlugin extends Plugin {
 	updateWallpaperStyles(){
 		let value = "blur("+this.settings.blur.toString()+"px) brightness("+this.settings.brightness.toString()+"%)";
 		this.wallpaperCover.style.setProperty("filter",value);
+		if (this.settings.backgroundColor != "") {
+			this.wallpaperCover.style.setProperty("background-blend-mode", this.settings.backgroundBlendMode);
+			this.wallpaperCover.style.setProperty("background-color", this.settings.backgroundColor);
+		} else {
+			this.wallpaperCover.style.removeProperty("background-blend-mode");
+			this.wallpaperCover.style.removeProperty("background-color");
+		};
 	}
 
 	RemoveDynamicBackgroundContainer(){
@@ -344,21 +353,21 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 			.setName('Static Wallpaper Image')
 			.setDesc("Image file in Vault. Please use the relative path of the image file inside Vault.")
 			.addTextArea((text) =>
-        text
-					.setValue(this.plugin.settings.backgroundImageFile)
-          .setPlaceholder("Example: attachments/moon.jpg or wallpapers/green.png" )
-					.then((cb) => {
-						cb.inputEl.style.width = "100%";
-						cb.inputEl.rows = 5;
-					})
-          .onChange(async (value) => {
-            this.plugin.settings.backgroundImageFile = value;
+						 text
+						 .setValue(this.plugin.settings.backgroundImageFile)
+						 .setPlaceholder("Example: attachments/moon.jpg or wallpapers/green.png" )
+						 .then((cb) => {
+							 cb.inputEl.style.width = "100%";
+							 cb.inputEl.rows = 5;
+						 })
+						 .onChange(async (value) => {
+							 this.plugin.settings.backgroundImageFile = value;
 
-						await this.plugin.saveSettings();
+							 await this.plugin.saveSettings();
 
-						this.plugin.SetDynamicBackgroundContainerBgProperty();
-					})
-      );
+							 this.plugin.SetDynamicBackgroundContainerBgProperty();
+						 })
+						);
 
 			new Setting(containerEl)
 			.setName('Blur')
@@ -391,5 +400,45 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 						this.plugin.updateWallpaperStyles();
 					});
 			});	
+
+			new Setting(containerEl)
+			.setName('Background Blending Color')
+			.setDesc("Background Blending Color in Hexcode.")
+			.addTextArea((text) =>
+						 text
+						 .setValue(this.plugin.settings.backgroundColor)
+						 .setPlaceholder("Example: red" )
+						 .then((cb) => {
+							 cb.inputEl.style.width = "100%";
+							 cb.inputEl.rows = 1;
+						 })
+						 .onChange(async (value) => {
+							 this.plugin.settings.backgroundColor = value;
+
+							 await this.plugin.saveSettings();
+
+							 this.plugin.updateWallpaperStyles();
+						 })
+						);
+
+			new Setting(containerEl)
+			.setName('Background Blending Mode')
+			.setDesc("Allowed value: normal, multiply, screen, overlay, darken, lighten, color-dodge, color-burn, hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity.")
+			.addTextArea((text) =>
+						 text
+						 .setValue(this.plugin.settings.backgroundBlendMode)
+						 .setPlaceholder("luminosity" )
+						 .then((cb) => {
+							 cb.inputEl.style.width = "100%";
+							 cb.inputEl.rows = 1;
+						 })
+						 .onChange(async (value) => {
+							 this.plugin.settings.backgroundBlendMode = value;
+
+							 await this.plugin.saveSettings();
+
+							 this.plugin.updateWallpaperStyles();
+						 })
+						);
 	}
 }
