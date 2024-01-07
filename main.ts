@@ -97,13 +97,8 @@ export default class DynamicBackgroundPlugin extends Plugin {
 	updateWallpaperStyles(){
 		let value = "blur("+this.settings.blur.toString()+"px) brightness("+this.settings.brightness.toString()+"%)";
 		this.wallpaperCover.style.setProperty("filter",value);
-		if (this.settings.backgroundColor != "") {
-			this.wallpaperCover.style.setProperty("background-blend-mode", this.settings.backgroundBlendMode);
-			this.wallpaperCover.style.setProperty("background-color", this.settings.backgroundColor);
-		} else {
-			this.wallpaperCover.style.removeProperty("background-blend-mode");
-			this.wallpaperCover.style.removeProperty("background-color");
-		};
+		this.wallpaperCover.style.setProperty("background-blend-mode", this.settings.backgroundBlendMode);
+		this.wallpaperCover.style.setProperty("background-color", this.settings.backgroundColor);
 	}
 
 	RemoveDynamicBackgroundContainer(){
@@ -427,7 +422,6 @@ class DynamicBackgroundSettingTab extends PluginSettingTab {
 			.addTextArea((text) =>
 						 text
 						 .setValue(this.plugin.settings.backgroundBlendMode)
-						 .setPlaceholder("luminosity" )
 						 .then((cb) => {
 							 cb.inputEl.style.width = "100%";
 							 cb.inputEl.rows = 1;
